@@ -3,7 +3,7 @@
 theme: seriph
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: https://source.unsplash.com/collection/94734566/1920x1080
+background: https://cover.sli.dev
 # apply any unocss classes to the current slide
 class: 'text-center'
 # https://sli.dev/custom/highlighters.html
@@ -69,7 +69,7 @@ katzumi（かつみ）と申します。
 ::left::
 
 <div class="float-left">
-<img src="https://pbs.twimg.com/profile_images/799890486773170176/KN4gKfS2_400x400.jpg" class="rounded-full w-40 mr"/>  
+<img src="https://pbs.twimg.com/profile_images/1768978237210935296/idy9J4l6_400x400.jpg" class="rounded-full w-40 mr"/>  
 <simple-icons-x /> <a href="https://twitter.com/katzchum">katzchum</a></div>  
 <QRCode width="180" height="180" value="https://twitter.com/katzchum" color="4329B9" image="Logo_of_X.svg" />
 
@@ -100,7 +100,7 @@ transition: fade-out
 ---
 
 # 複雑なドメインと向き合っています  
-ハンドブックとは？となる圧巻の 1.5K 頁オーバー。レセプト業務の基盤システムを開発しています！
+ハンドブックとは？🤔 圧巻の 1.5K 頁オーバー。レセプト業務の基盤システムを開発しています！
 
 <img src="https://github.com/k2tzumi/activerecord-pattern-unlearning-clean-architecture/blob/main/public/ISBN-978-4805887332.png?raw=true" />
 
@@ -133,13 +133,14 @@ transition: fade-out
 <br />
 <a href="https://twitter.com/search?q=%23cicd_test_night">#cicd_test_night</a>
 
-<!-- 本セッションでは、撮影やSNS拡散を歓迎しています。ご自由に写真を撮影して、XなどのSNSでシェアしてください。 　　
-ただし、以下の点にご注意ください。　　
+<!-- 本セッションでは、撮影やSNS拡散を歓迎しています。ご自由に写真を撮影して、XなどのSNSでシェアしてください  
+ただし、以下の点にご注意ください  
 
-著作権などの法的な問題を避けるために、スライドや登壇者の写真や動画を無断で商用利用しないでください。　　
-他の参加者のプライバシーや迷惑にならないように、撮影や投稿する際には配慮してください。　　
-SNSでシェアする際には、ハッシュタグ「#phperkaigi #TrackA」をつけてください。　　
-これにより、本セッションの関連情報を簡単に検索できるようになります。 -->
+著作権などの法的な問題を避けるために、スライドや登壇者の写真や動画を無断で商用利用しないでください。  
+他の参加者のプライバシーや迷惑にならないように、撮影や投稿する際には配慮してください。  
+SNSでシェアする際には、ハッシュタグ「#phperkaigi #TrackA」をつけてください。  
+これにより、本セッションの関連情報を簡単に検索できるようになります
+-->
 
 ---
 layout: two-cols-header
@@ -152,13 +153,16 @@ layout: two-cols-header
 
 ### 🤫話さないこと
 
-- 技術的な詳細  
+- 詳細な workflow や設定内容  
+- ブランチワークの定義
 
 ::right::
 
 ### 📣話すこと
 
-- リリース戦略の方針  
+- リリース戦略  
+- 検討時の問題認識  
+
 
 ---
 transition: slide-up
@@ -167,7 +171,7 @@ transition: slide-up
 # 本プログラムのゴール🏁
 リリース調整業の軽減
 
-プロダクトのリリース戦略を考えるきっかけになれば嬉しいです　　
+プロダクトのリリース戦略を考えるきっかけになれば嬉しいです  　
 
 * 想定ターゲット層  
   * リリース間隔が 2 週〜1 ヶ月程度（定期リリース）のプロダクト
@@ -180,23 +184,33 @@ transition: slide-up
 
 ---
 layout: default
+transition: fade
 ---
 
 # プログラムの流れ
-アジェンダ
+Agenda
 
-1. リリース管理が大変な理由
-1. 事例となるプロダクト＆背景説明
-1. リリースに関する悩みアレコレ
+1. リリース管理のつらみ
+1. 今回のお話(事例プロジェクト説明)
 1. リリース戦略
-1. 運用負荷上昇のリスク
-1. 出来たリリースフロー
-1. 改善した結果
-1. よかったこと
+1. 運用課題
+1. ソリューション
+1. 改善結果
 1. まとめ
 
 ---
+layout: image-right
+image: section1.jpeg
+class: mt-45
+backgroundSize: 20em 60%
 transition: slide-up
+---
+
+# <material-symbols-counter-1 />リリース管理のつらみ
+
+<!--
+https://copilot.microsoft.com/images/create/e383aae383aae383bce382b9e7aea1e79086e381aee381a4e38289e381bf/1-65f64b7fabc649208536cdd84f326bc2?id=somMB%2fIvPRkWGRMbcxZ3sg%3d%3d&view=detailv2&idpp=genimg&idpclose=1&thId=OIG3.ig8r8v9L1MqoKuuXO91Q&FORM=SYDBIC
+-->
 ---
 
 # リリース管理が大変な理由
@@ -212,24 +226,33 @@ transition: slide-up
 
 ---
 layout: center
+transition: fade
 ---
 
 # リリースやデプロイを判断する人が固定化する問題
-往々としてリーダー的なメンバーへ集中しがち。慣れな部分があるけれど、、  
+往々としてリーダー的なメンバーへ集中しがち。慣れな部分があるけれど
 
 この機能はいつリリースだっけ？と脳内リソースを一定消費してしまう  
 リリース都度に判断を求められる
 
 ---
-layout: statement
+layout: image-right
+image: section2.jpeg
+class: mt-45
+backgroundSize: 20em 60%
+transition: slide-up
 ---
 
-# 今回のお話
+# <material-symbols-counter-2 />今回のお話
+事例プロジェクト説明
 
+<!--
+https://copilot.microsoft.com/images/create/e4ba8be4be8be38397e383ade382b8e382a7e382afe38388e8aaace6988ee381aee794bbe5838f-e383ace382bbe38397e38388e6a5ade58b99e381aee8a38fe696b9/1-65f64d1ca8ee48e499a74077c19c106d?id=hxyrM%2bs1rgONQRfLvXLC%2bA%3d%3d&view=detailv2&idpp=genimg&idpclose=1&thId=OIG3.Adi9ddbrroSVBBXqRQb3&FORM=SYDBIC
+-->
 ---
 
-# プロジェクト概要＆特性
-所謂マイクロサービスの1つのサービス
+# プロジェクト概略
+所謂マイクロサービスの 1 つのサービス
 
 * 自社サービスから接続する BaaS（レセプト業務を扱う API）  
 * スキーマ駆動開発を採用
@@ -237,14 +260,14 @@ layout: statement
 * シングルテナンシー（single-tenancy）で利用する想定[^1]  
 稼働するバージョンがサービスによって異なる可能性がある
 * 3 チーム体制で担当サービスを平行開発する  
-* 月 1 回程度の定期リリースを行う  
+* 月 1 回程度の定期リリースする  
 リリース前に品質保証テストを実施する
 
 [^1]: センシティブな情報を扱うので、データ管理上のリスクがある。  
 また、サービスを跨ってのリリース調整は難しいとの判断
 
 ---
-transition: slide-up
+transition: fade
 ---
 
 # 悩みごと
@@ -252,16 +275,23 @@ transition: slide-up
 
 * バージョン管理が煩雑になりそう
 * アプリケーションと API 仕様書のバージョンの同期して共有しないと混乱しそう  
-スキーマを公開してから、クライアント要望等で見直しが入る可能性がある
+スキーマを公開してから、クライアント要望等で見直しされる可能性がある
 * クライアント＆環境毎にどのバージョンが反映されているか？把握するのが難しい  
 仕様確認や不具合発生時の問い合わせが複数チームから発生する
 
 ---
-layout: statement
+layout: image-right
+image: section3.jpeg
+class: mt-45
+backgroundSize: 20em 60%
+transition: slide-up
 ---
 
-# リリース戦略
+# <material-symbols-counter-3 />リリース戦略
 
+<!--
+https://copilot.microsoft.com/images/create/e383aae383aae383bce382b9e688a6e795a5e38292e382a4e383a1e383bce382b8e38197e3819fe794bbe5838fe38292e4bd9ce68890e38197e381a6e3818fe381a0e38195e38184-e794bbe5838fe381abe381afe99bbbe8bb8ae38282e590abe38281e381a6e3818fe381a0e38195e38184/1-65f64e52b21e46d0887dc2bef16ccee2?id=rYkJJFBDxZ%2BkU%2BTxYWjJGA%3D%3D&view=detailv2&idpp=genimg&idpclose=1&thid=OIG1.zGFoNvB1crJkMx7gZ5CO&form=SYDBIC
+-->
 ---
 
 # リリーストレイン
@@ -279,8 +309,8 @@ layout: statement
 1. 開発スコープを決めて QA リソースも抑えてリリース日を決める
 2. 開発開始してテスト可能になったら develop 用 build [^1] をテスト環境に開発者がリリース  
 任意のタイミングで任意のブランチでのビルドも可
-3. QA がテスト環境で検証。問題があれば 2 からやり直し
-4. リリースのリハーサル日の前日にタグ付け <div class="mention">←　ココ！</div>  
+3. QA がテスト環境で検証。問題があれば 2 からやり直し  
+4. <span v-mark.circle.red="1">リリースのリハーサルの前日にタグ付け</span>   
 5. Release 用 build [^2] をステージング環境でリリース・リハーサル実施
 6. リリース日に本番環境へリリース
 
@@ -293,44 +323,87 @@ layout: statement
 細かくリリースブスブランチを切る戦略
 
 * リリース日が未定な状態でもバージョンタグを付ける  
-開発環境へのデプロイするタイミングでタグを付ける  
+<span v-mark.red="1">開発環境へのデプロイするタイミングでタグを付ける</span>  
 統一したバージョンで関係チームと共有する
 * タグ連動したリリースフローの整備  
 API 仕様書もバージョン管理する  
 アプリケーションにバージョン情報を埋め込む  
-上記の一連をアプリケーションのリリースと連動させたバージョン管理
+🖕をアプリケーションの<span v-mark.circle.orange="2">リリースと連動させたバージョン管理</span>
 
+---
+transition: fade
 ---
 
 # リリース戦略の狙い
 タグ付けを逐次行うスタイル
 
+<v-clicks>
+
 * 依存関係のあるサービスのバージョンを明確化  
-共通の統一したバージョンを関係チームと認識となる状態とする
+共通の統一したバージョンを関係チームと共有した状態にする
 * バージョンの差分をわかりやすくする
 * 小さくリリースすることでビックバンリリースにさせない  
 バージョンを小出しにすることで、フィードバックサイクルを早くする
-* 参照している API 仕様書のバージョンで安心して [^1] 開発が進められる  
-クライアント側で対応するバージョンの選択の余地ができる  
+* 参照している API 仕様書のバージョンで安心して開発が進められる  
+API 仕様書とアプリケーションのバージョンの整合性を取ることで意図しない Breaking Change を防ぐ  
+クライアント側で対応するバージョンの選択の余地をもたせる  
 
-[^1]:AP 仕様書とアプリケーションのバージョンの整合性を取ることで意図しない Breaking Change を防ぐ
+</v-clicks>
+
+---
+layout: image-right
+image: section4.jpeg
+class: mt-45
+backgroundSize: 20em 60%
+transition: slide-up
+---
+
+# <material-symbols-counter-4 /> 運用課題
+
+<!--
+https://copilot.microsoft.com/images/create/e9818be794a8e8aab2e9a18ce38292e382a4e383a1e383bce382b8e38199e3828be794bbe5838f-e382bfe382b0e38284e3838ee383bce38388e38292e4bd9ce68890e38199e3828be4babae381a8e38081e8a68be3828be581b4e381aee4babae3818ce3819de3828ce3819ee3828ce5bf99e38197e3819de38186/1-65f64f681ae54800a8100f9ac913ae5f?id=roVDparRX9MKVwlU983FMg%3D%3D&view=detailv2&idpp=genimg&idpclose=1&thid=OIG2.YbR2zIM3aoP4EJlZ93GD&form=SYDBIC
+-->
 
 ---
 transition: slide-up
 ---
 
 # 運用負荷上昇のリスク
-開発プロセスとして正しく運用されなければ絵に描いた餅になる
+サービス間の依存関係の元と先でそれぞれ運用負荷増となる
 
 * サービス提供側（プロバイダ）
-  * タグ付け作業
+  * タグ付け作業   
+  そもそも<span v-mark.circle.orange="1">タグ付けのルールどうする？🤔</span>
   * リリースノート作成
   * ドキュメント反映
   * リリース前準備や付帯作業
 * サービス利用側（コンシューマ）
-  * API 仕様書の差分を追うのが大変
   * 各環境のデプロイの調整
+  * API 仕様書の差分を追うのが大変
+  * <span v-mark.red="2">バージョン差異の影響度がわからない</span>
 
+---
+layout: statement
+transition: fade
+---
+
+# 開発プロセスとして
+# 正しく運用されなければ
+# 絵に描いた餅になる
+
+---
+layout: image-right
+image: section5.jpeg
+class: mt-45
+backgroundSize: 20em 60%
+transition: slide-up
+---
+
+# <material-symbols-counter-5 /> ソリューション
+
+<!--
+https://copilot.microsoft.com/images/create/e78cabe381aee3818ae38282e381a1e38283e381aee38391e383bce38384e3818ce382bfe382b0e38292e4bb98e38191e38289e3828ce381a6e38081e6a49ce59381e38292e38195e3828ce381aae3818ce38289e5be90e38085e381abe7b584e381bfe4b88ae38192e38289e3828ce381a6e38081e69c80e7b582e79a84e381abe78cabe381aee3818ae38282e381a1e38283e3818c/1-65f653d08ad14c279e2baea712bbdaef?id=7PSLtzNaVj7YoOrFMHlJWw%3D%3D&view=detailv2&idpp=genimg&idpclose=1&thid=OIG1.wvFc1nvuI1JG3gcAHlBF&form=SYDBIC
+-->
 ---
 layout: statement
 ---
@@ -354,6 +427,8 @@ SemVer
 <version core> ::= <major> "." <minor> "." <patch>
 ```
 
+---
+transition: slide-up
 ---
 
 # セマンティックバージョニングとは？
@@ -381,6 +456,8 @@ layout: statement
 <Tweet id="1576165379747246082" />
 
 ---
+transition: slide-up
+---
 
 # tagprの動き
 [リリース用のpull requestを自動作成し、マージされたら自動でタグを打つtagpr](https://songmu.jp/riji/entry/2022-09-05-tagpr.html)
@@ -394,8 +471,10 @@ semver 前提
 layout: statement
 ---
 
-# Demo
+# Demo  
+https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines
 
+<QRCode width="180" height="180" value="https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines" color="4329B9" />
 
 ---
 
@@ -406,16 +485,33 @@ layout: statement
 バージョン番号はこれ（スライド執筆時点）
 
 ---
+transition: fade
+---
 
 # tagprまとめ
 GitHub flow のデメリットを補う最後のピース
 
+* SemVer によるバージョン管理  
+バージョン番号で影響度がわかるようになる
 * リリース手順に非常に緩い制約付けがされる  
 * リリースの workflow の起点となる
 * CHANGELOG やリリースノートも連動して作成される
 * リリース作業自体がオープン化される  
-次にリリースされる内容がわかる。BreakingChange もわかる
+次にリリースされる内容が他のチームからもわかる
 
+---
+layout: image-right
+image: section6.jpeg
+class: mt-45
+backgroundSize: 20em 60%
+transition: slide-up
+---
+
+# <material-symbols-counter-6 />改善結果
+
+<!--
+https://copilot.microsoft.com/images/create/e38391e382a4e38397e3818ce382bfe382b0e381a7e381a4e381aae3818ce381a3e381a6e38081efbc92e58cb9e381aee78cabe3818ce382b3e3839fe383a5e3838be382b1e383bce382b7e383a7e383b3e381a7e3818de381a6e38184e3828b/1-65f65776158f421a8ba903ca37c71b05?id=vCD%2Bt6KiUmaDXkFK4uCWtA%3D%3D&view=detailv2&idpp=genimg&idpclose=1&thid=OIG1.Kz5.asEWmAtI7TJHGFCW&form=SYDBIC
+-->
 ---
 
 # リリースworkflowで実現したアレコレ
@@ -433,7 +529,7 @@ S3 静的ウェブサイトホスティングに sync
 * OpenAPI の仕様書のバージョン間の差分作成  
 [Tufin/oasdiff](https://github.com/Tufin/oasdiff) で breaking changes を検知
 
-[^1]: ビルドコストを下げる為に現状は停止中
+[^1]: ビルドコストを下げる為に現時点では停止中
 
 ---
 
@@ -445,7 +541,7 @@ Migration 有や OpenAPI 変更有のラベルと連動して Minor アップデ
   [tagpr]
     minorLabels = migration,oas-change
   ```
-* 仮リースなのか？本リリースなのか？判定する方法  
+* 仮リース [^1] なのか？本リリースなのか？判定する方法  
 tagpr のアクション呼び出し後の outputs.tag を判定して github script 経由で後続の wokflow の dispatch を呼び分ける
   * 本リリース
   ```yaml
@@ -456,6 +552,8 @@ tagpr のアクション呼び出し後の outputs.tag を判定して github sc
   if: steps.tagpr.outputs.tag == ''
   ```
 
+[^1]: リリースブランチへの merge が通常の Pull Request のものか？
+
 <!--
 minorLabelsとmajorLabelsは以下のPRで提案させて頂きました  
 https://github.com/Songmu/tagpr/pull/142
@@ -465,26 +563,55 @@ https://github.com/Songmu/tagpr/pull/142
 
 # CDパイプライン全体像
 
+<Transform :scale="0.9">
+
 * リリースブランチへ Merge 時  
 次のリリース用のリリース用 PR 作成（tagpr 標準機能）  
 次のリリースバージョン用の API 仕様書作成  
 次のリリースバージョン用のコンテナイメージ作成（ECR push）  
 * リリース用 PullRequest Merge 時  
 タグ付け（tagpr 標準機能）  
+API バージョン情報書き換え（tagpr 標準機能）  
 CHANGELOG 更新（tagpr 更新）  
 リリース（ノート）作成（tagpr+Github 標準機能）  
 タグ付けバージョンのコンテナイメージ作成（ECR push）    
 API 仕様書公開（Latest 反映）  
 API 仕様書変更点（oasdiff）  
 * リリースフロー  
-runn を利用して ssh 接続してチーム開発環境へのデプロイを自動化  
-テスト環境以降は ECR にプッシュされたイメージを利用して Github Actions でデプロイ
+タグを指定して ssh 接続してチーム開発環境への半自動デプロイ(runn)  
+テスト環境以降は ECR にプッシュされたイメージを利用して Github Actions でデプロイ(ecspresso)
 
+</Transform>
+
+---
+
+# ドキュメントの品質向上への取り組み（CI）
+スキーマ駆動開発で仕様書の品質確保が重要
+
+* OpenAPI の仕様書の静的チェック  
+[stoplightio/spectral](https://github.com/stoplightio/spectral) で Lint  
+OpenAPI の関連ツールで仕様書を利用可能か？を検証する
+* OpenAPI の仕様書と API の実装が乖離のチェック  
+runn を利用してリクエストとレスポンスが OpenAPI の仕様書通りか？テストを行う
+
+---
+layout: image-right
+image: section7.jpeg
+class: mt-45
+backgroundSize: 20em 60%
+transition: slide-up
+---
+
+# <material-symbols-counter-7 />まとめ
+
+<!--
+https://copilot.microsoft.com/images/create/e383aae383aae383bce382b9e3839ee3838de382b8e383a1e383b3e38388e381aee6b091e4b8bbe58c96e38284e382bbe383abe38395e3839ee3838de382b8e383a1e383b3e38388/1-65f6783248ae4720b7766220abc0fc26?id=cSKVXZkiOvx9Bs07mt9VCA%3D%3D&view=detailv2&idpp=genimg&idpclose=1&thid=OIG1.PjpjN0RQJT_ZCvI_ea1j&form=SYDBIC
+-->
 ---
 
 # tagprを導入して感じたメリット
 
-* テスト環境以降のデプロイを各サービスのチームメンバーに任せられるようになった  
+* テスト環境以降のデプロイ作業を各サービスのチームメンバーへタスク移譲できた  
 リリーストレインでテスト OK になったバージョンを選択してリリースに含める流れ
 * API 変更点の共有を省力化  
 バージョンアップ時にリリースノートのみを共有するだけ  
@@ -515,6 +642,7 @@ https://songmu.jp/riji/entry/2022-09-05-tagpr.html
 https://k1low.hatenablog.com/entry/2022/10/04/083000
 * 登壇を支える技術  
 https://zenn.dev/katzumi/articles/technology-supporting-speakers
+
 ---
 layout: end
 ---
