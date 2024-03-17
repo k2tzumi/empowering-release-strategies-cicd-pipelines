@@ -1,5 +1,8 @@
 # Changelog
 
+## [v0.0.4](https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines/compare/v0.0.3...v0.0.4) - 2024-03-17
+- bonsai take2 by @k2tzumi in https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines/pull/8
+
 ## [v0.0.3](https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines/compare/v0.0.2...v0.0.3) - 2024-03-17
 - bonsai by @k2tzumi in https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines/pull/5
 - Fix vite config by @k2tzumi in https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines/pull/6
