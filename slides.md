@@ -3,64 +3,84 @@
 theme: seriph
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: https://source.unsplash.com/collection/94734566/1920x1080
+background: https://cover.sli.dev
 # apply any unocss classes to the current slide
 class: 'text-center'
 # https://sli.dev/custom/highlighters.html
 highlighter: shiki
 # some information about the slides, markdown enabled
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
+iinfo: |
+    マイクロサービスアーキテクチャを採用したプロジェクトにおいて、複数のチームが協力してリリーストレインを進める際に、自律的かつ効率的なリリース調整を行う方法を紹介します。
+    リリース戦略においてマイクロサービスアーキテクチャの特性を考慮し、チーム間のコミュニケーションを最小限に抑えつつ、効率的なプロセスを実現するためのアプローチおよびそれを支えCI/CDのワークフローに触れます。
 
-  Learn more at [Sli.dev](https://sli.dev)
+drawings:
+  persist: false
+transition: slide-left
+title: リリース戦略を支えるCI/CDパイプライン
+mdc: true
 addons:
   - "@katzumi/slidev-addon-qrcode"
   - "slidev-addon-components"
   - "slidev-addon-rabbit"
 ---
 
-# Welcome to Slidev
+# リリース戦略を支えるCI/CDパイプライン
 
-Presentation slides for developers @ v0.0.5
+[CI/CD Test Night #7](https://testnight.connpass.com/event/311263/)　March 26, 2024.  
+v0.0.1  
+@katzumi(かつみ)
 
 <div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 p-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
+  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
     Press Space for next page <carbon:arrow-right class="inline"/>
   </span>
 </div>
 
-<a href="https://github.com/k2tzumi/slidev-boilerplate" target="_blank" alt="GitHub" title="Open in GitHub" class="abs-br m-6 text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-  <carbon-logo-github />
-</a>
+<div class="abs-br m-6 flex gap-2">
+  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
+    <carbon:edit />
+  </button>
+  <a href="https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines" target="_blank" alt="GitHub" title="Open in GitHub"
+    class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
+    <carbon-logo-github />
+  </a>
+</div>
 
 <!--
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
 -->
 
 ---
+transition: fade-out
+layout: two-cols-header
+---
 
-# What is Slidev？
+# 自己紹介
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
+katzumi（かつみ）と申します。
 
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
+「障害のない社会をつくる」をビジョンに掲げている「りたりこ」という会社に所属しています
+<a href="https://litalico.co.jp/">
+<img src="https://litalico.co.jp/ogp.png" class="w-40" />
+</a>
 
-<br>
-<br>
+以下のアカウントで活動しています。
 
-Read more about [Why Slidev?](https://sli.dev/guide/why)
+::left::
 
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
--->
+<div class="float-left">
+<img src="https://pbs.twimg.com/profile_images/1768978237210935296/idy9J4l6_400x400.jpg" class="rounded-full w-40 mr"/>  
+<simple-icons-x /> <a href="https://twitter.com/katzchum">katzchum</a></div>  
+<QRCode width="180" height="180" value="https://twitter.com/katzchum" color="4329B9" image="Logo_of_X.svg" />
+
+::right::
+
+<img src="https://avatars.githubusercontent.com/u/1182787?v=4" class="rounded-full w-40 mr-12"/>
+
+<logos-github-octocat /> [k2tzumi](https://github.com/k2tzumi)  
+<simple-icons-zenn /> [katzumi](https://zenn.dev/katzumi)  
+
+<br />
 
 <style>
 h1 {
@@ -75,257 +95,561 @@ h1 {
 </style>
 
 ---
+layout: default
+transition: fade-out
+---
 
-# Navigation
+# 複雑なドメインと向き合っています  
+ハンドブックとは？🤔 圧巻の 1.5K 頁オーバー。レセプト業務の基盤システムを開発しています！
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
+<img src="https://github.com/k2tzumi/activerecord-pattern-unlearning-clean-architecture/blob/main/public/ISBN-978-4805887332.png?raw=true" />
 
-## Keyboard Shortcuts
+---
+layout: two-cols-header
+transition: fade-out
+---
 
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd>| previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
+# お願い
 
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
+写真撮影、SNS での実況について
+
+登壇者の励みになるので是非ともご意見やご感想など、フィードバック頂けると助かります mm  
+あとでスライドを公開します
+
+::left::
+
+<Transform :scale="2.5">
+　　　🙆‍♀📷<ph-projector-screen-chart-light /><br />
+　　　🙅‍♂📹💸<br />
+　　　🙅📸👨‍👦‍👦<br />
+</Transform>
+
+::right::
+
+<br />
+<Transform :scale="2">
+<fa6-brands-square-x-twitter />
+</Transform>
+<br />
+<a href="https://twitter.com/search?q=%23cicd_test_night">#cicd_test_night</a>
+
+<!-- 本セッションでは、撮影やSNS拡散を歓迎しています。ご自由に写真を撮影して、XなどのSNSでシェアしてください  
+ただし、以下の点にご注意ください  
+
+著作権などの法的な問題を避けるために、スライドや登壇者の写真や動画を無断で商用利用しないでください。  
+他の参加者のプライバシーや迷惑にならないように、撮影や投稿する際には配慮してください。  
+SNSでシェアする際には、ハッシュタグ「#phperkaigi #TrackA」をつけてください。  
+これにより、本セッションの関連情報を簡単に検索できるようになります
+-->
+
+---
+layout: two-cols-header
+---
+
+# 今日お話すること・話さないこと
+スコープ的なお話
+
+::left::
+
+### 🤫話さないこと
+
+- 詳細な workflow や設定内容  
+- ブランチワークの定義
+
+::right::
+
+### 📣話すこと
+
+- リリース戦略  
+- 運用課題とその改善手法
+- 省力化・自動化内容
+
+---
+transition: slide-up
+---
+
+# 本プログラムのゴール🏁
+リリース調整業の軽減
+
+プロダクトのリリース戦略を考えるきっかけになれば嬉しいです  　
+
+* 想定ターゲット層  
+  * リリース間隔が 2 週〜1 ヶ月程度（定期リリース）のプロダクト
+  * 開発プロセスにリリース前の受け入れテストがある  
+  品質保証テスト(QAT)、ユーザー受入れテスト(UAT)
+  * 複数リポジトリに分割され依存関係があるサービス  
+  マイクロサービスとか、フロントエンド（アプリ含む）・バックエンドに分かれている
+  * 複数チームによる開発
+  * SRE とか Platform Engineering 領域
+
+---
+layout: default
+transition: fade
+---
+
+# プログラムの流れ
+Agenda
+
+1. リリース管理のつらみ
+1. 今回のお話(事例プロジェクト説明)
+1. リリース戦略
+1. 運用課題
+1. ソリューション
+1. 改善結果
+1. まとめ
 
 ---
 layout: image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
+image: section1.jpeg
+class: mt-45
+backgroundSize: 20em 60%
+transition: slide-up
 ---
 
-# Code
+# <material-symbols-counter-1 />リリース管理のつらみ
 
-Use code snippets and get the highlighting directly！
-
-<!-- https://sli.dev/guide/syntax.html#line-highlighting -->
-
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
-}
-
-function updateUser(id: number, update: User) {
-  const user = getUser(id)
-  const newUser = { ...user, ...update }
-  saveUser(id, newUser)
-}
-```
-
-<arrow v-click="[3, 4]" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
-
+<!--
+https://copilot.microsoft.com/images/create/e383aae383aae383bce382b9e7aea1e79086e381aee381a4e38289e381bf/1-65f64b7fabc649208536cdd84f326bc2?id=somMB%2fIvPRkWGRMbcxZ3sg%3d%3d&view=detailv2&idpp=genimg&idpclose=1&thId=OIG3.ig8r8v9L1MqoKuuXO91Q&FORM=SYDBIC
+-->
 ---
 
-# Components
+# リリース管理が大変な理由
+日々変化する状況に対応していかなければならない
 
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
----
-class: px-20
----
-
-# Themes
-
-Slidev comes with powerful theming support. Themes are able to provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/themes/use.html) and
-check out the [Awesome Themes Gallery](https://sli.dev/themes/gallery.html).
-
----
-preload: false
----
-
-# Animations
-
-Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }">
-  Slidev
-</div>
-```
-
-<div class="w-60 relative mt-6">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 40, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn More](https://sli.dev/guide/animations.html#motion)
-
-</div>
-
----
-
-# LaTeX
-
-LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
-
-<br>
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$
-\begin{array}{c}
-
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
-
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-
-\nabla \cdot \vec{\mathbf{B}} & = 0
-
-\end{array}
-$$
-
-<br>
-
-[Learn more](https://sli.dev/guide/syntax#latex)
-
----
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-2 gap-4 pt-4 -mb-6">
-
-```mermaid {scale: 0.9}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-</div>
-
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
+* だんだんシステムが複雑になり、依存関係が発生してデプロイの難易度があがる
+* 関係者も多数だと調整が大変になっていく
+* 開発着手順がそのままリリース順とはならない  
+開発規模の大小さまざまで、並行開発される
+* 内外に向けての適切なタイミングでリリース内容を情報共有しないといけない  
+必要な情報共有として修正内容、影響範囲、影響度とか多岐にわたる
+* システム全体と各関係者の状況を把握していないとリリース管理ができない
 
 ---
 layout: center
-class: text-center
+transition: fade
 ---
 
-# Learn More
+# リリースやデプロイを判断する人が固定化する問題
+往々としてリーダー的なメンバーへ集中しがち。慣れな部分があるけれど
 
-[Documentations](https://sli.dev) / [GitHub Repo](https://github.com/slidevjs/slidev)
+この機能はいつリリースだっけ？と脳内リソースを一定消費してしまう  
+リリース都度に判断を求められる
+
+---
+layout: image-right
+image: section2.jpeg
+class: mt-45
+backgroundSize: 20em 60%
+transition: slide-up
+---
+
+# <material-symbols-counter-2 />今回のお話
+事例プロジェクト説明
+
+<!--
+https://copilot.microsoft.com/images/create/e4ba8be4be8be38397e383ade382b8e382a7e382afe38388e8aaace6988ee381aee794bbe5838f-e383ace382bbe38397e38388e6a5ade58b99e381aee8a38fe696b9/1-65f64d1ca8ee48e499a74077c19c106d?id=hxyrM%2bs1rgONQRfLvXLC%2bA%3d%3d&view=detailv2&idpp=genimg&idpclose=1&thId=OIG3.Adi9ddbrroSVBBXqRQb3&FORM=SYDBIC
+-->
+---
+
+# プロジェクト概略
+所謂マイクロサービスの 1 つのサービス
+
+* 自社サービスから接続する BaaS（レセプト業務を扱う API）  
+* スキーマ駆動開発を採用
+* 接続するアプリケーションが複数存在し、それぞれ別チームが運営
+* シングルテナンシー（single-tenancy）で利用する想定[^1]  
+稼働するバージョンがサービスによって異なる可能性がある
+* 3 チーム体制で担当サービスを平行開発する  
+* 月 1 回程度の定期リリースする  
+リリース前に品質保証テストを実施する
+
+[^1]: センシティブな情報を扱うので、データ管理上のリスクがある。  
+また、サービスを跨ってのリリース調整は難しいとの判断
+
+---
+transition: fade
+---
+
+# 悩みごと
+プロジェクトのリリース管理上での課題感
+
+* バージョン管理が煩雑になりそう
+* アプリケーションと API 仕様書のバージョンの同期して共有しないと混乱しそう  
+スキーマを公開してから、クライアント要望等で見直しされる可能性がある
+* クライアント＆環境毎にどのバージョンが反映されているか？把握するのが難しい  
+仕様確認や不具合発生時の問い合わせが複数チームから発生する
+
+---
+layout: image-right
+image: section3.jpeg
+class: mt-45
+backgroundSize: 20em 60%
+transition: slide-up
+---
+
+# <material-symbols-counter-3 />リリース戦略
+
+<!--
+https://copilot.microsoft.com/images/create/e383aae383aae383bce382b9e688a6e795a5e38292e382a4e383a1e383bce382b8e38197e3819fe794bbe5838fe38292e4bd9ce68890e38197e381a6e3818fe381a0e38195e38184-e794bbe5838fe381abe381afe99bbbe8bb8ae38282e590abe38281e381a6e3818fe381a0e38195e38184/1-65f64e52b21e46d0887dc2bef16ccee2?id=rYkJJFBDxZ%2BkU%2BTxYWjJGA%3D%3D&view=detailv2&idpp=genimg&idpclose=1&thid=OIG1.zGFoNvB1crJkMx7gZ5CO&form=SYDBIC
+-->
+---
+
+# リリーストレイン
+独立したチームが協調してリリース計画を行う
+
+<Transform :scale="0.6">
+
+リリース日を決めてリリースブランチカットを行い、リリースに間に合わなかった機能は  
+次のリリースタイミングに先送りする
+
+![リリーストレイン](release-train.png)
+
+</Transform>
+
+---
+
+# リリースブランチカットするタイミングについて
+別プロジェクトでの事例(git-flow)
+
+1. 開発スコープを決めて QA リソースも抑えてリリース日を決める
+2. 開発開始してテスト可能になったら develop 用 build [^1] をテスト環境に開発者がリリース  
+任意のタイミングで任意のブランチでのビルドも可
+3. QA がテスト環境で検証。問題があれば 2 からやり直し  
+4. <span v-mark.circle.red="1">リリースのリハーサルの前日にタグ付け</span>   
+5. Release 用 build [^2] をステージング環境でリリース・リハーサル実施
+6. リリース日に本番環境へリリース
+
+[^1]: develop ブランチへの merge を起点にしてビルド
+[^2]: タグ付けを起点にしてビルド
+
+---
+
+# リリースブランチカットするタイミングについて
+細かくリリースブスブランチを切る戦略
+
+* リリース日が未定な状態でもバージョンタグを付ける  
+<span v-mark.red="1">開発環境へのデプロイするタイミングでタグを付ける</span>  
+統一したバージョンで関係チームと共有する
+* タグ連動したリリースフローの整備  
+API 仕様書もバージョン管理する  
+アプリケーションにバージョン情報を埋め込む  
+🖕をアプリケーションの<span v-mark.circle.orange="2">リリースと連動させたバージョン管理</span>
+
+---
+transition: fade
+---
+
+# リリース戦略の狙い
+タグ付けを逐次行うスタイル
+
+<v-clicks>
+
+* 依存関係のあるサービスのバージョンを明確化  
+共通の統一したバージョンを関係チームと共有した状態にする
+* バージョンの差分をわかりやすくする
+* 小さくリリースすることでビックバンリリースにさせない  
+バージョンを小出しにすることで、フィードバックサイクルを早くする
+* 参照している API 仕様書のバージョンで安心して開発が進められる  
+API 仕様書とアプリケーションのバージョンの整合性を取ることで意図しない Breaking Change を防ぐ  
+クライアント側で対応するバージョンの選択の余地をもたせる  
+
+</v-clicks>
+
+---
+layout: image-right
+image: section4.jpeg
+class: mt-45
+backgroundSize: 20em 60%
+transition: slide-up
+---
+
+# <material-symbols-counter-4 /> 運用課題
+
+<!--
+https://copilot.microsoft.com/images/create/e9818be794a8e8aab2e9a18ce38292e382a4e383a1e383bce382b8e38199e3828be794bbe5838f-e382bfe382b0e38284e3838ee383bce38388e38292e4bd9ce68890e38199e3828be4babae381a8e38081e8a68be3828be581b4e381aee4babae3818ce3819de3828ce3819ee3828ce5bf99e38197e3819de38186/1-65f64f681ae54800a8100f9ac913ae5f?id=roVDparRX9MKVwlU983FMg%3D%3D&view=detailv2&idpp=genimg&idpclose=1&thid=OIG2.YbR2zIM3aoP4EJlZ93GD&form=SYDBIC
+-->
+
+---
+transition: slide-up
+---
+
+# 運用負荷上昇のリスク
+サービス間の依存関係の元と先でそれぞれ運用負荷増となる
+
+* サービス提供側（プロバイダ）
+  * タグ付け作業   
+  そもそも<span v-mark.circle.orange="1">タグ付けのルールどうする？🤔</span>
+  * リリースノート作成
+  * ドキュメント反映
+  * リリース前準備や付帯作業
+* サービス利用側（コンシューマ）
+  * 各環境のデプロイの調整
+  * API 仕様書の差分を追うのが大変
+  * <span v-mark.red="2">バージョン差異の影響度がわからない</span>
+
+---
+layout: statement
+transition: fade
+---
+
+# 開発プロセスとして
+# 正しく運用されなければ
+# 絵に描いた餅になる
+
+---
+layout: image-right
+image: section5.jpeg
+class: mt-45
+backgroundSize: 20em 60%
+transition: slide-up
+---
+
+# <material-symbols-counter-5 /> ソリューション
+
+<!--
+https://copilot.microsoft.com/images/create/e78cabe381aee3818ae38282e381a1e38283e381aee38391e383bce38384e3818ce382bfe382b0e38292e4bb98e38191e38289e3828ce381a6e38081e6a49ce59381e38292e38195e3828ce381aae3818ce38289e5be90e38085e381abe7b584e381bfe4b88ae38192e38289e3828ce381a6e38081e69c80e7b582e79a84e381abe78cabe381aee3818ae38282e381a1e38283e3818c/1-65f653d08ad14c279e2baea712bbdaef?id=7PSLtzNaVj7YoOrFMHlJWw%3D%3D&view=detailv2&idpp=genimg&idpclose=1&thid=OIG1.wvFc1nvuI1JG3gcAHlBF&form=SYDBIC
+-->
+---
+layout: statement
+---
+
+# どう立ち向かうか？
+
+---
+layout: statement
+---
+
+# OSSの開発スタイルに倣う
+
+---
+layout: statement
+---
+
+# セマンティックバージョニング 2.0.0
+SemVer
+
+```
+<version core> ::= <major> "." <minor> "." <patch>
+```
+
+---
+transition: slide-up
+---
+
+# セマンティックバージョニングとは？
+バージョン番号間で互換性を表す
+
+<blockquote>
+<p>1. 基本的に数字 3 つでバージョンを表し、リリース前の不安定なバージョンには alpha や rc などがつくことがある</p>
+<p>2. 一番左の数字が大きくなったら後方互換性がない</p>
+<p>3. 一番左の数字が 0 のときはどの数字が上がっても後方互換性がない</p>
+<p>4. たまに一番左以外の数字があがったときに後方互換性がない場合がある</p>
+</blockquote>
+<a href="https://dev.classmethod.jp/articles/summary-for-semver/">Semantic Versioning おさらい</a> より
+
+
+---
+layout: statement
+---
+
+# tagpr
+
+---
+
+# tagprとの出会い
+
+<Tweet id="1576165379747246082" />
+
+---
+transition: slide-up
+---
+
+# tagprの動き
+[リリース用のpull requestを自動作成し、マージされたら自動でタグを打つtagpr](https://songmu.jp/riji/entry/2022-09-05-tagpr.html)
+
+* リリース用の pull request が GitHub Actions で自動で作られる  
+バージョン番号が書かれたファイルや CHANGELOG.md を自動更新
+* その pull request をマージするとマージコミットに自動でバージョン tag が打たれる  
+semver 前提
+
+---
+layout: statement
+---
+
+# Demo  
+https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines
+
+<QRCode width="180" height="180" value="https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines" color="4329B9" />
+
+---
+
+# tagprでのリリース＆バージョン管理事例
+実はこのスライドも管理されていたりします
+
+![slidev version](slidev-version.png)
+バージョン番号はこれ（スライド執筆時点）
+
+---
+transition: fade
+---
+
+# tagprまとめ
+GitHub flow のデメリットを補う最後のピース
+
+* SemVer によるバージョン管理  
+バージョン番号で影響度がわかるようになる
+* リリース手順に非常に緩い制約付けがされる  
+* リリースの workflow の起点となる
+* CHANGELOG やリリースノートも連動して作成される
+* リリース作業自体がオープン化される  
+次にリリースされる内容が他のチームからもわかる
+
+---
+layout: image-right
+image: section6.jpeg
+class: mt-45
+backgroundSize: 20em 60%
+transition: slide-up
+---
+
+# <material-symbols-counter-6 />改善結果
+
+<!--
+https://copilot.microsoft.com/images/create/e38391e382a4e38397e3818ce382bfe382b0e381a7e381a4e381aae3818ce381a3e381a6e38081efbc92e58cb9e381aee78cabe3818ce382b3e3839fe383a5e3838be382b1e383bce382b7e383a7e383b3e381a7e3818de381a6e38184e3828b/1-65f65776158f421a8ba903ca37c71b05?id=vCD%2Bt6KiUmaDXkFK4uCWtA%3D%3D&view=detailv2&idpp=genimg&idpclose=1&thid=OIG1.Kz5.asEWmAtI7TJHGFCW&form=SYDBIC
+-->
+---
+
+# リリースworkflowで実現したアレコレ
+実装例です
+
+* 次バージョンでの build 作成 [^1]
+* OpenAPI 仕様書公開  
+S3 静的ウェブサイトホスティングに sync  
+以下の 3 つのバージョンでの仕様書公開
+  * latest  
+  リリースタイミングで反映
+  * 次バージョン  
+  リリースブランチに merge 時に反映
+  * 過去のバージョン  
+* OpenAPI の仕様書のバージョン間の差分作成  
+[Tufin/oasdiff](https://github.com/Tufin/oasdiff) で breaking changes を検知
+
+[^1]: ビルドコストを下げる為に現時点では停止中
+
+---
+
+# tagprのTips
+
+* 次のバージョン決定が label 連動で制御される  
+Migration 有や OpenAPI 変更有のラベルと連動して Minor アップデートにする
+  ```yaml
+  [tagpr]
+    minorLabels = migration,oas-change
+  ```
+* 仮リース [^1] なのか？本リリースなのか？判定する方法  
+tagpr のアクション呼び出し後の outputs.tag を判定して github script 経由で後続の wokflow の dispatch を呼び分ける
+  * 本リリース
+  ```yaml
+  if: steps.tagpr.outputs.tag != ''
+  ```
+  * 仮リリース
+  ```yaml
+  if: steps.tagpr.outputs.tag == ''
+  ```
+
+[^1]: リリースブランチへの merge が通常の Pull Request のものか？
+
+<!--
+minorLabelsとmajorLabelsは以下のPRで提案させて頂きました  
+https://github.com/Songmu/tagpr/pull/142
+-->
+
+---
+
+# CDパイプライン全体像
+
+<Transform :scale="0.9">
+
+* リリースブランチへ Merge 時  
+次のリリース用のリリース用 PR 作成（tagpr 標準機能）  
+次のリリースバージョン用の API 仕様書作成  
+次のリリースバージョン用のコンテナイメージ作成（ECR push）  
+* リリース用 PullRequest Merge 時  
+タグ付け（tagpr 標準機能）  
+API バージョン情報書き換え（tagpr 標準機能）  
+CHANGELOG 更新（tagpr 更新）  
+リリース（ノート）作成（tagpr+Github 標準機能）  
+タグ付けバージョンのコンテナイメージ作成（ECR push）    
+API 仕様書公開（Latest 反映）  
+API 仕様書変更点（oasdiff）  
+* リリースフロー  
+タグを指定して ssh 接続してチーム開発環境への半自動デプロイ(runn)  
+テスト環境以降は ECR にプッシュされたイメージを利用して Github Actions でデプロイ(ecspresso)
+
+</Transform>
+
+---
+
+# ドキュメントの品質向上への取り組み（CI）
+スキーマ駆動開発で仕様書の品質確保が重要
+
+* OpenAPI の仕様書の静的チェック  
+[stoplightio/spectral](https://github.com/stoplightio/spectral) で Lint  
+OpenAPI の関連ツールで仕様書を利用可能か？を検証する
+* OpenAPI の仕様書と API の実装が乖離のチェック  
+runn を利用してリクエストとレスポンスが OpenAPI の仕様書通りか？テストを行う
+
+---
+layout: image-right
+image: section7.jpeg
+class: mt-45
+backgroundSize: 20em 60%
+transition: slide-up
+---
+
+# <material-symbols-counter-7 />まとめ
+
+<!--
+https://copilot.microsoft.com/images/create/e383aae383aae383bce382b9e3839ee3838de382b8e383a1e383b3e38388e381aee6b091e4b8bbe58c96e38284e382bbe383abe38395e3839ee3838de382b8e383a1e383b3e38388/1-65f6783248ae4720b7766220abc0fc26?id=cSKVXZkiOvx9Bs07mt9VCA%3D%3D&view=detailv2&idpp=genimg&idpclose=1&thid=OIG1.PjpjN0RQJT_ZCvI_ea1j&form=SYDBIC
+-->
+---
+
+# tagprを導入して感じたメリット
+
+* テスト環境以降のデプロイ作業を各サービスのチームメンバーへタスク移譲できた  
+リリーストレインでテスト OK になったバージョンを選択してリリースに含める流れ
+* API 変更点の共有を省力化  
+バージョンアップ時にリリースノートのみを共有するだけ  
+最新 API 仕様書が公開サーバー（S3 Web）に自動反映(差分内容見える化)  
+* リリースに伴うソース凍結期間を設けなくて良くなった
+* リリースマネジメントが民主化される  
+次期リリース内容が見えるようになって、各チーム間でいい感じに調整が行われる
+
+---
+
+# tagprの波及効果
+
+* SRE 部門も使い始めた  
+ベースイメージを tagpr でバージョン管理し、依存しているリポジトリから renovate させる
+* workflow を整理できてビルドコストも低減することが可能  
+* 細かくリリースを心がけるようになる  
+tagpr がリリース用 PR を纏めてくれることで、細かくリリースをしようとするマインドになる
+
+---
+
+# 参考資料＆リンク
+
+* Songmu/tagpr  
+https://github.com/Songmu/tagpr
+* リリース用の pull request を自動作成し、マージされたら自動でタグを打つ tagpr  
+https://songmu.jp/riji/entry/2022-09-05-tagpr.html
+* tagpr で実現する Pull Request 上で進める OSS のリリースマネジメント
+https://k1low.hatenablog.com/entry/2022/10/04/083000
+* 登壇を支える技術  
+https://zenn.dev/katzumi/articles/technology-supporting-speakers
+
+---
+layout: end
+---
+
+ご清聴ありがとうございました
