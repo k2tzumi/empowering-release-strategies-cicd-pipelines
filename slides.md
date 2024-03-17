@@ -161,8 +161,8 @@ layout: two-cols-header
 ### 📣話すこと
 
 - リリース戦略  
-- 検討時の問題認識  
-
+- 運用課題とその改善手法
+- 省力化・自動化内容
 
 ---
 transition: slide-up
@@ -297,9 +297,14 @@ https://copilot.microsoft.com/images/create/e383aae383aae383bce382b9e688a6e795a5
 # リリーストレイン
 独立したチームが協調してリリース計画を行う
 
+<Transform :scale="0.6">
+
 リリース日を決めてリリースブランチカットを行い、リリースに間に合わなかった機能は  
 次のリリースタイミングに先送りする
-<img src="release-train.png" class="h-90" alt="リリーストレイン" />  
+
+![リリーストレイン](release-train.png)
+
+</Transform>
 
 ---
 
