@@ -1,5 +1,8 @@
 # Changelog
 
+## [v0.0.7](https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines/compare/v0.0.6...v0.0.7) - 2024-03-20
+- Add description of slidev by @k2tzumi in https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines/pull/14
+
 ## [v0.0.6](https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines/compare/v0.0.5...v0.0.6) - 2024-03-20
 - Summarize pipeline contents in a table by @k2tzumi in https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines/pull/12
 
