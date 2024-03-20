@@ -556,6 +556,9 @@ https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines
 # tagprでのリリース＆バージョン管理事例
 実はこのスライドも管理されていたりします
 
+<img src="https://sli.dev/logo.svg" class="h-3em float-left" /> 本スライドは Slidev という Markdown でスライド作成するツールを利用しています  
+Markdown は GitHub でリポジトリ管理しています。
+
 ![slidev version](slidev-version.png)
 バージョン番号はこれ（スライド執筆時点）
 
