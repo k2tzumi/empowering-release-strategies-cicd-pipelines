@@ -1,5 +1,8 @@
 # Changelog
 
+## [v0.0.9](https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines/compare/v0.0.8...v0.0.9) - 2024-03-20
+- Fix ` An error occurred on this slide. Check the terminal for more information.` by @k2tzumi in https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines/pull/18
+
 ## [v0.0.8](https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines/compare/v0.0.7...v0.0.8) - 2024-03-20
 - Add note by @k2tzumi in https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines/pull/16
 
