@@ -160,8 +160,9 @@ layout: two-cols-header
 
 ### 📣話すこと
 
+- リリース管理での悩み事  
 - リリース戦略  
-- 運用課題とその改善手法
+- 開発プロセスの見直し
 - 省力化・自動化内容
 
 <!--
@@ -187,6 +188,7 @@ transition: slide-up
   * SRE とか Platform Engineering 領域
 
 <!--
+リリース戦略を考える契機になれば。。  
 ターゲットは定期リリースを行っていてリリース前にQAテストがあるプロジェクトになります
 -->
 
@@ -205,6 +207,10 @@ Agenda
 1. ソリューション
 1. 改善結果
 1. まとめ
+
+<!--
+本日お話する流れです
+-->
 
 ---
 layout: image-right
@@ -233,7 +239,7 @@ https://copilot.microsoft.com/images/create/e383aae383aae383bce382b9e7aea1e79086
 * システム全体と関係各位の状況を把握する必要がある
 
 <!--
-システムが複雑になってそれに田鶴猿人も増えるとリリース作業も複雑化する  
+システムが複雑になり関係者が増えるとリリース作業も複雑化していきます  
 全体を俯瞰できる人でないとリリース管理できない
 -->
 
@@ -284,6 +290,7 @@ https://copilot.microsoft.com/images/create/e4ba8be4be8be38397e383ade382b8e382a7
 また、サービスを跨ってのリリース調整は難しいとの判断
 
 <!--
+ざっくり説明すると。。  
 スキーマ駆動開発を採用するレセプト業務のBaaS  
 クライアントによって利用されるバージョンが異なる可能性があるのが特徴  
 QAだったり関係者も多いプロジェクト
@@ -632,22 +639,14 @@ https://github.com/Songmu/tagpr/pull/142
 # CDパイプライン全体まとめ
 
 <Transform :scale="0.9">
+✅はtagpr標準機能で実現
 
-* リリースブランチへ Merge 時  
-次のリリース用のリリース用 PR 作成（tagpr 標準機能）  
-次のリリースバージョン用の API 仕様書作成（swagger-php, redoc）  
-次のリリースバージョン用のコンテナイメージ作成（ECR push）  
-* リリース用 PullRequest Merge 時  
-タグ付け（tagpr 標準機能）  
-API バージョン情報書き換え（tagpr 標準機能）  
-CHANGELOG 更新（tagpr 更新）  
-リリース（ノート）作成（tagpr+Github 標準機能）  
-タグ付けバージョンのコンテナイメージ作成（ECR push）    
-API 仕様書公開（Latest 反映）  
-API 仕様書変更点（oasdiff）  
-* リリースフロー  
-タグを指定して ssh 接続してチーム開発環境への半自動デプロイ(runn)  
-テスト環境以降は ECR にプッシュされたイメージを利用して Github Actions でデプロイ(ecspresso)
+| イベント | ワークフロー・アクション |
+| --- | --- |
+| リリースブランチ Merge 時 | ✅リリース用 PR 作成<br /> 次リリースバージョンの API 仕様書作成（swagger-php, redoc） <br /> 次リリースバージョンのコンテナイメージ作成（ECR push） |
+| リリース用 PR Merge 時 | ✅リリースタグ付け<br />✅API バージョン情報書き換<br />✅CHANGELOG 更新<br />✅リリース（ノート）作成（tagpr+GitHub）<br />リリースバージョンのコンテナイメージ作成（ECR push）<br />API 仕様書公開（Latest 反映）  <br />API 仕様書変更点まとめ（oasdiff） |
+| チーム開発環境リリース時  | タグ指定して runn でEC2へデプロイ（ssh 自動化ツールとして利用)   |
+| テスト環境以降リリース時  | タグ指定して ecspresso でECSへデプロイ(GitHub Action経由)  |
 
 </Transform>
 
