@@ -214,7 +214,7 @@ backgroundSize: 20em 60%
 transition: slide-up
 ---
 
-# <material-symbols-counter-1 />リリース管理のつらみ
+# <material-symbols-counter-1 />リリース管理つらみ
 
 <!--
 https://copilot.microsoft.com/images/create/e383aae383aae383bce382b9e7aea1e79086e381aee381a4e38289e381bf/1-65f64b7fabc649208536cdd84f326bc2?id=somMB%2fIvPRkWGRMbcxZ3sg%3d%3d&view=detailv2&idpp=genimg&idpclose=1&thId=OIG3.ig8r8v9L1MqoKuuXO91Q&FORM=SYDBIC
@@ -311,7 +311,7 @@ transition: fade
 
 
 <!--
-バージョンの統一ができないが故の悩み事
+バージョン管理が煩雑になり、仕様書の共有一つとっても関係者との調整コストが掛かりそうというイメージがありました
 -->
 
 ---
@@ -327,6 +327,12 @@ transition: slide-up
 <!--
 https://copilot.microsoft.com/images/create/e383aae383aae383bce382b9e688a6e795a5e38292e382a4e383a1e383bce382b8e38197e3819fe794bbe5838fe38292e4bd9ce68890e38197e381a6e3818fe381a0e38195e38184-e794bbe5838fe381abe381afe99bbbe8bb8ae38282e590abe38281e381a6e3818fe381a0e38195e38184/1-65f64e52b21e46d0887dc2bef16ccee2?id=rYkJJFBDxZ%2BkU%2BTxYWjJGA%3D%3D&view=detailv2&idpp=genimg&idpclose=1&thid=OIG1.zGFoNvB1crJkMx7gZ5CO&form=SYDBIC
 -->
+
+<!--
+次のスライドから、リリース戦略を考えていきます。  
+これからの話は、今回のサービスと連携するサービスのリリース事情と対比して説明します。
+-->
+
 ---
 
 # リリーストレイン
@@ -342,7 +348,8 @@ https://copilot.microsoft.com/images/create/e383aae383aae383bce382b9e688a6e795a5
 </Transform>
 
 <!--
-リリース戦略の基本的な考え方はリリーストレインとします
+今回の関連するサービスでは開発サイクルが眺めなので、リリース戦略の基本的な考え方はリリーストレインを採用していました。  
+今回のサービスではこの一チームとしてこのフローになることになります
 -->
 
 ---
@@ -487,7 +494,8 @@ SemVer
 ```
 
 ---
-transition: slide-up
+transition: view-transition
+mdc: true
 ---
 
 # セマンティックバージョニングとは？
@@ -503,7 +511,8 @@ transition: slide-up
 
 
 ---
-layout: statement
+layout: cover
+background: release-pr-cover.png
 ---
 
 # tagpr
@@ -620,7 +629,7 @@ https://github.com/Songmu/tagpr/pull/142
 
 ---
 
-# CDパイプライン全体像(まとめ)
+# CDパイプライン全体まとめ
 
 <Transform :scale="0.9">
 
@@ -691,10 +700,11 @@ CI/CD パイプラインを充実させることで運用負荷がかからず�
 行動様式が変わりそうな予感
 
 * SRE 部門も使い始めた  
-ベースイメージを tagpr でバージョン管理し、依存しているリポジトリで renovate させる
+ベースイメージを tagpr でバージョン管理し、依存しているリポジトリで renovate させる  
+→　共通コンポーネントや、ベースイメージなどプラットフォーム領域と相性が良さそう
 * 細かくリリースを心がけるようになる  
 tagpr がリリース用 PR を纏めてくれることで、細かくリリースをしようとするマインドになる
-* バージョンのトレースがし易い  
+* バージョンのトレースがし易くなった  
 ログや監視ツールに API のバージョンを表示さるようにした    
 バージョン齟齬によるエラーが直ぐに判別できる
 
