@@ -349,7 +349,7 @@ https://copilot.microsoft.com/images/create/e383aae383aae383bce382b9e688a6e795a5
 リリース日を決めてリリースブランチカットを行い、リリースに間に合わなかった機能は  
 次のリリースタイミングに先送りする
 
-![リリーストレイン](release-train.png)
+![リリーストレイン](/release-train.png)
 
 </Transform>
 
@@ -403,7 +403,7 @@ transition: fade
 <v-clicks>
 
 1. 依存関係のあるサービスのバージョンを明確化  
-共通の統一したバージョンを関係チームと共有した状態にする
+共通の統一したバージョン（=コミット ID／≠ブランチ）を関係チームと共有した状態にする
 1. バージョンを小出しにすることで、フィードバックサイクルを早くする  
 ビックバンリリースにしない  
 あわせてバージョンの差分も見やすくする
@@ -557,7 +557,7 @@ https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines
 <img src="https://sli.dev/logo.svg" class="h-3em float-left" /> 本スライドは Slidev という Markdown でスライド作成するツールを利用しています  
 Markdown は GitHub でリポジトリ管理しています。
 
-![slidev version](slidev-version.png)
+![slidev version](/slidev-version.png)
 バージョン番号はこれ（スライド執筆時点）
 
 ---
