@@ -363,7 +363,7 @@ transition: fade
 ---
 
 # リリースブランチカットするタイミング（git-flow）
-連携サービスでの開発プロセスでのパターン例
+連携サービスでのパターン例
 
 1. 開発スコープを決めて QA リソースも抑えてリリース日を決める
 2. 開発開始してテスト可能になったら develop 用 build [^1] をテスト環境に開発者がリリース  
@@ -754,7 +754,7 @@ https://zenn.dev/katzumi/articles/technology-supporting-speakers
 * runn  
 https://github.com/k1LoW/runn
 
-[^1]: Demoしたリポジトリの説明記事です
+[^1]: Demo したリポジトリの説明記事です
 
 ---
 layout: end
