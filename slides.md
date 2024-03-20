@@ -214,7 +214,7 @@ backgroundSize: 20em 60%
 transition: slide-up
 ---
 
-# <material-symbols-counter-1 />リリース管理のつらみ
+# <material-symbols-counter-1 />リリース管理つらみ
 
 <!--
 https://copilot.microsoft.com/images/create/e383aae383aae383bce382b9e7aea1e79086e381aee381a4e38289e381bf/1-65f64b7fabc649208536cdd84f326bc2?id=somMB%2fIvPRkWGRMbcxZ3sg%3d%3d&view=detailv2&idpp=genimg&idpclose=1&thId=OIG3.ig8r8v9L1MqoKuuXO91Q&FORM=SYDBIC
@@ -329,7 +329,8 @@ https://copilot.microsoft.com/images/create/e383aae383aae383bce382b9e688a6e795a5
 -->
 
 <!--
-
+次のスライドから、リリース戦略を考えていきます。  
+これからの話は、今回のサービスと連携するサービスのリリース事情と対比して説明します。
 -->
 
 ---
@@ -347,7 +348,8 @@ https://copilot.microsoft.com/images/create/e383aae383aae383bce382b9e688a6e795a5
 </Transform>
 
 <!--
-開発サイクルが眺めなので、リリース戦略の基本的な考え方はリリーストレインとします
+今回の関連するサービスでは開発サイクルが眺めなので、リリース戦略の基本的な考え方はリリーストレインを採用していました。  
+今回のサービスではこの一チームとしてこのフローになることになります
 -->
 
 ---
@@ -492,7 +494,8 @@ SemVer
 ```
 
 ---
-transition: slide-up
+transition: view-transition
+mdc: true
 ---
 
 # セマンティックバージョニングとは？
@@ -508,7 +511,8 @@ transition: slide-up
 
 
 ---
-layout: statement
+layout: cover
+background: release-pr-cover.png
 ---
 
 # tagpr
@@ -625,7 +629,7 @@ https://github.com/Songmu/tagpr/pull/142
 
 ---
 
-# CDパイプライン全体像(まとめ)
+# CDパイプライン全体まとめ
 
 <Transform :scale="0.9">
 

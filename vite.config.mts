@@ -5,7 +5,8 @@ export default defineConfig({
     rollupOptions: {
       external: [
         'release-train.png',
-        'slidev-version.png'
+        'slidev-version.png',
+        'release-pr-cover.png'
       ],
     },
   }
