@@ -1,5 +1,8 @@
 # Changelog
 
+## [v0.0.6](https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines/compare/v0.0.5...v0.0.6) - 2024-03-20
+- Summarize pipeline contents in a table by @k2tzumi in https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines/pull/12
+
 ## [v0.0.5](https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines/compare/v0.0.4...v0.0.5) - 2024-03-20
 - bonsai take3 by @k2tzumi in https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines/pull/10
 
