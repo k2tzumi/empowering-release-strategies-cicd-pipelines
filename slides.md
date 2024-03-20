@@ -336,7 +336,7 @@ https://copilot.microsoft.com/images/create/e383aae383aae383bce382b9e688a6e795a5
 
 <!--
 次のスライドから、リリース戦略を考えていきます。  
-これからの話は、今回のサービスと連携するサービスのリリース事情と対比して説明します。
+これからの話は、今回のサービスと連携するサービス全体のリリース事情として説明します。
 -->
 
 ---
@@ -362,8 +362,8 @@ https://copilot.microsoft.com/images/create/e383aae383aae383bce382b9e688a6e795a5
 transition: fade
 ---
 
-# 従来のリリースブランチカットするタイミング
-関連サービスの開発プロセス事例(git-flow)
+# リリースブランチカットするタイミング（git-flow）
+連携サービスでの開発プロセスでのパターン例
 
 1. 開発スコープを決めて QA リソースも抑えてリリース日を決める
 2. 開発開始してテスト可能になったら develop 用 build [^1] をテスト環境に開発者がリリース  
@@ -407,9 +407,9 @@ transition: fade
 1. バージョンを小出しにすることで、フィードバックサイクルを早くする  
 ビックバンリリースにしない  
 あわせてバージョンの差分も見やすくする
-1. 参照している API 仕様書のバージョンで安心して開発が進められる  
-API 仕様書とアプリケーションのバージョンの乖離を発生させない  
+1. 参照した API 仕様書のバージョンで、いつでも安心して開発着手ができるようにする  
 バージョン指定で環境を再現可能にすることで、クライアント側で対応するバージョンを選択できる  
+API 仕様書とアプリケーションのバージョンの乖離を発生させない  
 
 </v-clicks>
 
@@ -535,10 +535,14 @@ transition: slide-up
 # tagprの動き
 [リリース用のpull requestを自動作成し、マージされたら自動でタグを打つtagpr](https://songmu.jp/riji/entry/2022-09-05-tagpr.html)
 
-* リリース用の pull request が GitHub Actions で自動で作られる  
+<Transform :scale="1.2">
+
+1. リリース用の pull request が GitHub Actions で自動で作られる  
 バージョン番号が書かれたファイルや CHANGELOG.md を自動更新
-* その pull request をマージするとマージコミットに自動でバージョン tag が打たれる  
+1. その pull request をマージするとマージコミットに自動でバージョン tag が打たれる  
 semver 前提
+
+</Transform>
 
 ---
 layout: statement
@@ -567,6 +571,8 @@ transition: fade
 # tagprまとめ
 GitHub flow のデメリットを補う最後のピース
 
+<Transform :scale="1.5">
+
 * SemVer によるバージョン管理  
 バージョン番号で影響度がわかるようになる
 * リリース手順に非常に緩い制約付けがされる  
@@ -574,6 +580,8 @@ GitHub flow のデメリットを補う最後のピース
 * CHANGELOG やリリースノートも連動して作成される
 * リリース作業自体がオープン化される  
 次にリリースされる内容が他のチームからもわかる
+
+</Transform>
 
 ---
 layout: image-right
@@ -617,7 +625,7 @@ Migration 有や OpenAPI 変更有のラベルと連動して Minor アップデ
   [tagpr]
     minorLabels = migration,oas-change
   ```
-* 仮リース [^1] なのか？本リリースなのか？判定する方法  
+* 本リリースなのか？仮リース [^1] なのか？判定する方法  
 tagpr のアクション呼び出し後の outputs.tag を判定して github script 経由で後続の wokflow の dispatch を呼び分ける
   * 本リリース
   ```yaml
@@ -656,11 +664,17 @@ https://github.com/Songmu/tagpr/pull/142
 # ドキュメントの品質向上への取り組み（CI）
 スキーマ駆動開発で仕様書の品質確保が重要
 
+<Transform :scale="1.5">
+
 * OpenAPI の仕様書の静的チェック  
 [stoplightio/spectral](https://github.com/stoplightio/spectral) で Lint  
 OpenAPI の関連ツールで仕様書を利用可能か？を検証する
-* OpenAPI の仕様書と API の実装が乖離のチェック  
-runn を利用してリクエストとレスポンスが OpenAPI の仕様書通りか？テストを行う
+* OpenAPI の仕様書と API の実装が乖離していないか？のチェック  
+runn を利用してリクエストとレスポンスが OpenAPI の仕様書通りか？  
+テストする
+
+</Transform>
+
 
 ---
 layout: image-right
@@ -680,6 +694,8 @@ https://copilot.microsoft.com/images/create/e383aae383aae383bce382b9e3839ee3838d
 # tagprを導入して感じたメリット
 CI/CD パイプラインを充実させることで運用負荷がかからず開発者体験の向上ができる
 
+<Transform :scale="1.3">
+
 * テスト環境以降のデプロイ作業を各サービスのチームメンバーへタスク移譲できた  
 テスト OK になったバージョンでリリーストレインに乗るイメージ
 * API 変更点の共有を省力化  
@@ -688,6 +704,9 @@ CI/CD パイプラインを充実させることで運用負荷がかからず�
 差分もログとして管理される
 * リリースマネジメントが民主化される  
 次回のリリース内容が見えるようになって、いい感じに協調できる
+
+</Transform>
+
 
 <!--
 【補足】  
@@ -699,6 +718,8 @@ CI/CD パイプラインを充実させることで運用負荷がかからず�
 # tagprの波及効果
 行動様式が変わりそうな予感
 
+<Transform :scale="1.2">
+
 * SRE 部門も使い始めた  
 ベースイメージを tagpr でバージョン管理し、依存しているリポジトリで renovate させる  
 →　共通コンポーネントや、ベースイメージなどプラットフォーム領域と相性が良さそう
@@ -707,6 +728,9 @@ tagpr がリリース用 PR を纏めてくれることで、細かくリリー�
 * バージョンのトレースがし易くなった  
 ログや監視ツールに API のバージョンを表示さるようにした    
 バージョン齟齬によるエラーが直ぐに判別できる
+
+</Transform>
+
 
 <!--
 【補足】  
@@ -725,8 +749,12 @@ https://github.com/Songmu/tagpr
 https://songmu.jp/riji/entry/2022-09-05-tagpr.html
 * tagpr で実現する Pull Request 上で進める OSS のリリースマネジメント
 https://k1low.hatenablog.com/entry/2022/10/04/083000
-* 登壇を支える技術  
-https://zenn.dev/katzumi/articles/technology-supporting-speakers
+* 登壇を支える技術[^1]  
+https://zenn.dev/katzumi/articles/technology-supporting-speakers  
+* runn  
+https://github.com/k1LoW/runn
+
+[^1]: Demoしたリポジトリの説明記事です
 
 ---
 layout: end
