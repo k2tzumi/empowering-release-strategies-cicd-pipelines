@@ -12,7 +12,7 @@
     "lint": "textlint slides.md"
   },
   "dependencies": {
-    "@katzumi/slidev-addon-qrcode": "^0.0.16",
+    "@katzumi/slidev-addon-qrcode": "^0.0.17",
     "@slidev/cli": "^0.48.7",
     "@slidev/theme-default": "^0.25.0",
     "@slidev/theme-seriph": "^0.25.0",

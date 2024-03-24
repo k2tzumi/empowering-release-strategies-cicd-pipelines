@@ -552,7 +552,7 @@ layout: statement
 https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines
 
 <div class="flex justify-center">
-  <QRCode value="https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines" color="4329B9" image="https://gist.githubusercontent.com/christophermanning/4460135/raw/7278f8125f4508e096396b024304daf238e38b97/octocat.svg" />
+  <QRCode value="https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines" color="0e0c0" image="github-mark.svg" />
 </div>
 
 ---
