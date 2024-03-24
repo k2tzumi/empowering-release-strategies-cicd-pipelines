@@ -71,7 +71,7 @@ katzumi（かつみ）と申します。
 <div class="float-left">
 <img src="https://pbs.twimg.com/profile_images/1768978237210935296/idy9J4l6_400x400.jpg" class="rounded-full w-40 mr"/>  
 <simple-icons-x /> <a href="https://twitter.com/katzchum">katzchum</a></div>  
-<QRCode width="180" height="180" value="https://twitter.com/katzchum" color="4329B9" image="Logo_of_X.svg" />
+<QRCode :width="180" :height="180" value="https://twitter.com/katzchum" color="4329B9" image="Logo_of_X.svg" />
 
 ::right::
 
@@ -551,7 +551,9 @@ layout: statement
 # Demo  
 https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines
 
-<QRCode width="180" height="180" value="https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines" color="4329B9" />
+<div class="flex justify-center">
+  <QRCode value="https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines" color="4329B9" image="https://gist.githubusercontent.com/christophermanning/4460135/raw/7278f8125f4508e096396b024304daf238e38b97/octocat.svg" />
+</div>
 
 ---
 
