@@ -1,5 +1,9 @@
 # Changelog
 
+## [v0.0.11](https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines/compare/v0.0.10...v0.0.11) - 2024-03-26
+- Fix-qr-code2 by @k2tzumi in https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines/pull/23
+- Fix qr code by @k2tzumi in https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines/pull/24
+
 ## [v0.0.10](https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines/compare/v0.0.9...v0.0.10) - 2024-03-26
 - Larger text for easier reading by @k2tzumi in https://github.com/k2tzumi/empowering-release-strategies-cicd-pipelines/pull/20
 
