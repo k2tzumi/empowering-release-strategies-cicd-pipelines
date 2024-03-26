@@ -27,7 +27,7 @@ addons:
 # リリース戦略を支えるCI/CDパイプライン
 
 [CI/CD Test Night #7](https://testnight.connpass.com/event/311263/)　March 26, 2024.  
-v0.0.10  
+v0.0.11  
 @katzumi(かつみ)
 
 <div class="pt-12">
